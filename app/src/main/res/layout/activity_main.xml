@@ -1,0 +1,167 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/area"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvRectWidth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spinColor"
+        android:layout_toEndOf="@+id/etLocY"
+        android:layout_toRightOf="@+id/etLocY"
+        android:text="W:"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/etRectWidth"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tvRectWidth"
+        android:layout_toRightOf="@+id/tvRectWidth"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvRectHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spinColor"
+        android:layout_toEndOf="@+id/etRectWidth"
+        android:layout_toRightOf="@+id/etRectWidth"
+        android:text="H:"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/etRectHeight"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tvRectHeight"
+        android:layout_toRightOf="@+id/tvRectHeight"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/bRectangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="Create rectangle" />
+
+    <Spinner
+        android:id="@+id/spinColor"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etRectWidth"
+        android:layout_centerHorizontal="true"
+        android:entries="@array/color_arrays"
+        android:prompt="@string/color_prompt" />
+
+    <TextView
+        android:id="@+id/tvLocX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/etLocX"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="X:"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/etLocX"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/etLocY"
+        android:layout_toEndOf="@+id/tvLocX"
+        android:layout_toRightOf="@+id/tvLocX"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvLocY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/etLocX"
+        android:layout_toEndOf="@+id/etLocX"
+        android:layout_toRightOf="@+id/etLocX"
+        android:text="Y:"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/etLocY"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tvLocY"
+        android:layout_toRightOf="@+id/tvLocY"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textSize="20sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bRectangle"
+        android:layout_below="@+id/spinColor"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/ivRectangle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+        <ImageView
+            android:id="@+id/ivCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="22dp" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/bCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/bRectangle"
+        android:text="Create circle" />
+
+    <TextView
+        android:id="@+id/tvRadius"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spinColor"
+        android:layout_toEndOf="@+id/etRectHeight"
+        android:layout_toRightOf="@+id/etRectHeight"
+        android:text="R:"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/etRadius"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spinColor"
+        android:layout_toEndOf="@+id/tvRadius"
+        android:layout_toRightOf="@+id/tvRadius"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textSize="20sp" />
+
+</RelativeLayout>
