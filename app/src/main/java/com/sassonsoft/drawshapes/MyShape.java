@@ -1,28 +1,32 @@
 package com.sassonsoft.drawshapes;
 
+import android.content.Context;
 import android.graphics.Color;
+import android.view.View;
 
 /**
  * Created by Sasson on 02/09/2015.
  */
-public class MyShape {
+public class MyShape extends View {
     private int x;
     private int y;
     private int color;
 
-    public MyShape() {
+    public MyShape(Context context) {
+        super(context);
         x=0;
         y=0;
         color= Color.GREEN;
     }
 
-    public MyShape(int x,int y, int color) {
+    public MyShape(int x,int y, int color,Context context) {
+        super(context);
         this.x=x;
         this.y=y;
         this.color=color;
     }
 
-    public int getY() {
+    public int gety() {
         return y;
     }
 
@@ -30,7 +34,7 @@ public class MyShape {
         this.y = y;
     }
 
-    public int getX() {
+    public int getx() {
         return x;
     }
 

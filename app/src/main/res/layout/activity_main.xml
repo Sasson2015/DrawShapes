@@ -55,10 +55,10 @@
         android:id="@+id/bRectangle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Rectangle"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:text="Create rectangle" />
+        android:layout_toRightOf="@+id/bCircle"
+        android:layout_toEndOf="@+id/bCircle" />
 
     <Spinner
         android:id="@+id/spinColor"
@@ -89,7 +89,6 @@
         android:ems="10"
         android:inputType="numberDecimal"
         android:textSize="20sp" />
-
     <TextView
         android:id="@+id/tvLocY"
         android:layout_width="wrap_content"
@@ -116,22 +115,9 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/bRectangle"
         android:layout_below="@+id/spinColor"
-        android:layout_centerHorizontal="true">
-
-        <ImageView
-            android:id="@+id/ivRectangle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true" />
-
-        <ImageView
-            android:id="@+id/ivCircle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="22dp" />
+        android:layout_centerHorizontal="true"
+        android:id="@+id/rlDrawBoard"
+        android:background="#ffffff">
     </RelativeLayout>
 
     <Button
@@ -141,7 +127,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/bRectangle"
-        android:text="Create circle" />
+        android:text="circle" />
 
     <TextView
         android:id="@+id/tvRadius"

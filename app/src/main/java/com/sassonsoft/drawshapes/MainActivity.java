@@ -1,7 +1,9 @@
 package com.sassonsoft.drawshapes;
 
 import android.app.AlertDialog;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.graphics.drawable.shapes.RectShape;
@@ -18,37 +20,39 @@ import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ImageView rectImage, circleImage;
     private Button createRect, createCircle;
     private EditText locX, locY, width, height, radius;
     private Spinner color;
+    private RelativeLayout drawBoard;
 
     private Rectangle rect;
     private Circle circle;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initializationVariables();
-
     }
 
     private void initializationVariables() {
-        rectImage = (ImageView) findViewById(R.id.ivRectangle);
-        circleImage=(ImageView) findViewById(R.id.ivCircle);
         createRect = (Button) findViewById(R.id.bRectangle);
         createCircle = (Button) findViewById(R.id.bCircle);
         locX = (EditText) findViewById(R.id.etLocX);
         locY = (EditText) findViewById(R.id.etLocY);
         width = (EditText) findViewById(R.id.etRectWidth);
         height = (EditText) findViewById(R.id.etRectHeight);
-        radius=(EditText) findViewById(R.id.etRadius);
+        radius = (EditText) findViewById(R.id.etRadius);
         color = (Spinner) findViewById(R.id.spinColor);
+        drawBoard = (RelativeLayout) findViewById(R.id.rlDrawBoard);
 
         createRect.setOnClickListener(this);
         createCircle.setOnClickListener(this);
+        locX.requestFocus();
+
+        circle = new Circle(100, 100, Color.GREEN, 100, this);
+        rect= new Rectangle(200,200,Color.MAGENTA,200,100,this);
+
     }
 
     @Override
@@ -114,39 +118,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //create the rectangle on the screen
     private void createRectangle() {
 
-        rect = new Rectangle(Integer.parseInt(locX.getText().toString()),
-                Integer.parseInt(locY.getText().toString()),
-                Color.parseColor(color.getSelectedItem().toString()),
-                Integer.parseInt(width.getText().toString()),
-                Integer.parseInt(height.getText().toString()));
-
-        ShapeDrawable draw = new ShapeDrawable(new RectShape());
-        draw.setIntrinsicHeight(rect.getHeight());
-        draw.setIntrinsicWidth(rect.getWidth());
-        draw.getPaint().setColor(rect.getColor());
-
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(rect.getX(), rect.getY(), 0, 0);
-        rectImage.setLayoutParams(params);
-        rectImage.setImageDrawable(draw);
+        rect = new Rectangle(this);
+        rect.setX(Integer.parseInt(locX.getText().toString()));
+        rect.setY(Integer.parseInt(locY.getText().toString()));
+        rect.setWidth(Integer.parseInt(width.getText().toString()));
+        rect.setHeight(Integer.parseInt(height.getText().toString()));
+        rect.setColor(Color.parseColor(color.getSelectedItem().toString()));
+        drawBoard.addView(rect);
     }
 
     //create the circle on the screen
     private void createCircle() {
-
-        circle=new Circle(Integer.parseInt(locX.getText().toString()),
-                Integer.parseInt(locY.getText().toString()),
-                Color.parseColor(color.getSelectedItem().toString()),
-                Integer.parseInt(radius.getText().toString()));
-
-        ShapeDrawable oval = new ShapeDrawable(new OvalShape());
-        oval.setIntrinsicHeight(circle.getRadius()*2);
-        oval.setIntrinsicWidth(circle.getRadius()*2);
-        oval.getPaint().setColor(circle.getColor());
-
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(circle.getX(), circle.getY(), 0, 0);
-        circleImage.setLayoutParams(params);
-        circleImage.setImageDrawable(oval);
+        circle = new Circle(this);
+        circle.setX(Integer.parseInt(locX.getText().toString()));
+        circle.setY(Integer.parseInt(locY.getText().toString()));
+        circle.setColor(Color.parseColor(color.getSelectedItem().toString()));
+        circle.setRadius(Integer.parseInt(radius.getText().toString()));
+        drawBoard.addView(circle);
     }
 }
