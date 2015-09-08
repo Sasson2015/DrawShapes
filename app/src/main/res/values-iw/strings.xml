@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">צייר צורות</string>
+    <string name="action_settings">הגדרות</string>
+    <string name="circle">עיגול</string>
+    <string name="color_prompt">בחר ארץ</string>
+    <string name="errMsg">נא מלא את השדות הנחוצים למלבן כדי שיווצר.</string>
+    <string name="hello_world">שלום עולם!</string>
+    <string name="rectangle">מלבן</string>
+    <string name="errMsgTitle">שדות נדרשים!</string>
+    <string name="OK">בסדר</string>
+</resources>

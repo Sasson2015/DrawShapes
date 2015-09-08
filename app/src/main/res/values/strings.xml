@@ -4,6 +4,11 @@
     <string name="action_settings">Settings</string>
 
     <string name="color_prompt">Choose a country</string>
+    <string name="circle">CIRCLE</string>
+    <string name="rectangle">RECTANGLE</string>
+    <string name="errMsg">Please fill the necessary filed for Rectangle to be created.</string>
+    <string name="errMsgTitle">Fields Require!</string>
+    <string name="OK">OK</string>
     <string-array name="color_arrays">
         <item>GREEN</item>
         <item>RED</item>

@@ -52,6 +52,6 @@ public class Rectangle extends MyShape {
         canvas.drawColor(Color.WHITE);
         Paint paint = new Paint();
         paint.setColor(getColor());
-        canvas.drawRect(getx(),getY(),getwidth(),getheight(),paint);
+        canvas.drawRect(getx(),gety(),getwidth(),getheight(),paint);
     }
 }
